@@ -91,7 +91,7 @@ header button {
    color: #ff5744;
 }
 
-.quiz {
+.quiz, .quiz-input {
    width: 500px;
    margin: 0 auto;
    position: relative;
@@ -105,6 +105,7 @@ header button {
 .quizzer p {
    font-size: 16px;
    font-weight: 600;
+   text-align: center;
 }
 
 .quizzer label {

@@ -37,14 +37,18 @@ const questions = [
    {
       question: 'What is the following code going to output?<br> let arr = [1, 2, 3, 4];<br>console.log(arr.length);',
       choices: {
-         a: '===',
-         b: '=/',
-         c: '!',
-         d: '!=='
+         a: '3',
+         b: 'undefined',
+         c: '4',
+         d: '0'
       },
-      correctChoice: 'd'
+      correctChoice: 'a'
    }
 ];
+
+const finalMessage = ['You are a pro at this.', 'You did well', 'You can always try again'];
+
+
 
 function printAnswers() {
 
@@ -89,16 +93,16 @@ function start() {
 }
 
 function nextQuestion() {
-
-   do {
-
-      index++
-
-      currentQuestion = questions[index];
    
-      // outputs first question
+   index++;
+   
+   currentQuestion = questions[index];
+
+   // outputs first question
+   if (index < questions.length) {
       $('.quizzer').html(
          `<p class="text-centre">${currentQuestion.question}</p>
+         <div class="quiz-input">
          <label>
             <input type="radio" name="choiceA" value="">${currentQuestion.choices.a}
          </label><br>
@@ -111,7 +115,14 @@ function nextQuestion() {
          <label>
             <input type="radio" name="choiceA" value="">${currentQuestion.choices.d}
          </label><br>
-         <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">`
-      )
-   } while (index < questions.length);
+         <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">
+         </div>`
+      );
+   } else {
+      $('.quizzer').html(
+         ``
+      );
+   }
+
+   
 }
