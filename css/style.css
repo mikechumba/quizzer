@@ -122,6 +122,10 @@ header button {
    display: none;
 }
 
+.quizzer input[type="radio"]:checked + label {
+   background-color: #53ff75;
+}
+
 .quizzer input[type="radio"] {
    padding: 0 5px;
 }
