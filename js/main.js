@@ -1,7 +1,3 @@
-// const questions = []
-
-// const getQuestion = document.getElementById('quizzer');
-
 
 const questions = [
    {
@@ -43,16 +39,30 @@ const questions = [
          d: '0'
       },
       correctChoice: 'a'
+   },
+   {
+      question: 'In cases where an else. . .if conditional statement becomes too long,<br> one may opt for _____ as an alternative.',
+      choices: {
+         a: 'for',
+         b: 'while',
+         c: 'switch',
+         d: 'if. . .else'
+      },
+      correctChoice: 'c'
+   },
+   {
+      question: 'Which one of the following is not a function declaration type',
+      choices: {
+         a: 'Function declaration',
+         b: 'Arrow function',
+         c: 'Function literal',
+         d: 'Function expression'
+      },
+      correctChoice: 'a'
    }
 ];
 
 const finalMessage = ['You are a pro at this.', 'You did well', 'You can always try again'];
-
-
-
-function printAnswers() {
-
-}
 
 let index = -1;
 
@@ -61,6 +71,8 @@ let currentQuestion;
 
 // variable to store the correct answer to the current question
 let currentAnswer;
+
+let score;
 
 function start() {
 
@@ -77,19 +89,21 @@ function start() {
    $('.quizzer').html(
       `<p class="text-centre">${currentQuestion.question}</p>
       <label>
-         <input type="radio" name="choiceA" value="a">${currentQuestion.choices.a}
+         <input type="radio" name="choice" value="a">${currentQuestion.choices.a}
       </label><br>
       <label>
-         <input type="radio" name="choiceA" value="b">${currentQuestion.choices.b}
+         <input type="radio" name="choice" value="b">${currentQuestion.choices.b}
       </label><br>
       <label>
-         <input type="radio" name="choiceA" value="c">${currentQuestion.choices.c}
+         <input type="radio" name="choice" value="c">${currentQuestion.choices.c}
       </label><br>
       <label>
-         <input type="radio" name="choiceA" value="d">${currentQuestion.choices.d}
+         <input type="radio" name="choice" value="d">${currentQuestion.choices.d}
       </label><br>
       <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">`
    )
+
+   currentAnswer.push($("input[type='radio'][name='choice']:checked").val());
 }
 
 function nextQuestion() {
@@ -99,30 +113,94 @@ function nextQuestion() {
    currentQuestion = questions[index];
 
    // outputs first question
-   if (index < questions.length) {
+   if (index < (questions.length - 1)) {
       $('.quizzer').html(
          `<p class="text-centre">${currentQuestion.question}</p>
          <div class="quiz-input">
          <label>
-            <input type="radio" name="choiceA" value="">${currentQuestion.choices.a}
+            <input type="radio" name="choice" value="a">${currentQuestion.choices.a}
          </label><br>
          <label>
-            <input type="radio" name="choiceA" value="">${currentQuestion.choices.b}
+            <input type="radio" name="choice" value="b">${currentQuestion.choices.b}
          </label><br>
          <label>
-            <input type="radio" name="choiceA" value="">${currentQuestion.choices.c}
+            <input type="radio" name="choice" value="c">${currentQuestion.choices.c}
          </label><br>
          <label>
-            <input type="radio" name="choiceA" value="">${currentQuestion.choices.d}
+            <input type="radio" name="choice" value="d">${currentQuestion.choices.d}
          </label><br>
          <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">
          </div>`
       );
+
+      currentAnswer.push($("input[type='radio'][name='choice']:checked").val());
+
    } else {
       $('.quizzer').html(
-         ``
+         `<p class="text-centre">${currentQuestion.question}</p>
+         <div class="quiz-input">
+         <label>
+            <input type="radio" name="choice" value="a">${currentQuestion.choices.a}
+         </label><br>
+         <label>
+            <input type="radio" name="choice" value="b">${currentQuestion.choices.b}
+         </label><br>
+         <label>
+            <input type="radio" name="choiceA" value="c">${currentQuestion.choices.c}
+         </label><br>
+         <label>
+            <input type="radio" name="choice" value="d">${currentQuestion.choices.d}
+         </label><br>
+         <input class="q-btn next-action" type="button" value="Submit" onclick="myFunction()">
+         </div>`
+      );
+
+      currentAnswer.push($("input[type='radio'][name='choice']:checked").val());
+   }
+ 
+};
+
+function getUserChoice() {
+
+   score = 0;
+
+   for (let i = 0; i < currentAnswer.length; i++) {
+      if (currentAnswer[i] === currentQuestion.correctChoice) {
+         score += 10;
+      } else {
+         score = 0;
+      }
+   }
+
+};
+
+function printResult() {
+
+   if (score === 100) {
+      $('.quizzer').html(
+         `<h1>${finalMessage[0]}</h1>
+         <p>You scored <span>${score}</span>`
+      );
+   } else if (score >= 80 && score < 100) {
+      $('.quizzer').html(
+         `<h1>${finalMessage[1]}</h1>
+         <p>You scored <span>${score}</span>`
+      );
+   } else {
+      $('.quizzer').html(
+         `<h1>${finalMessage[2]}</h1>
+         <p>You scored <span>${score}</span>`
       );
    }
 
-   
+}
+
+function myFunction() {
+   printResult();
+   getUserChoice();
+
+   $('.quizzer').html(
+      `<h1>${currentAnswer[1]}</h1>
+      <p>You scored <span>${score}</span>`
+   );
 }
