@@ -18,7 +18,7 @@ The aim of the project was:
 
 I created a flowchart that tracks the process, simply, of the web app.
 
-![image](images/flowchart.png)
+![image](images/Flowchart.png)
 
 ### Setting Things Up
 
