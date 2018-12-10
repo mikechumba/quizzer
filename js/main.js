@@ -70,7 +70,36 @@ const questions = [
       },
       correctChoice: 'a'
    },
-   
+   {
+      question: 'What will the following code return:<br> let arr = [1, 2, 3, 4, [5, 6, 7]];<br>console.log(arr[4]);',
+      choices: {
+         a: '5',
+         b: '5, 6, 7',
+         c: '6',
+         d: '4'
+      },
+      correctChoice: 'b'
+   },
+   {
+      question: 'What is the output of the following expression?<br> function multNmbrs(a, b) {<br>  var c = a*b;<br>} multNmbrs(2, 6);',
+      choices: {
+         a: 'Nothing',
+         b: '8',
+         c: '12',
+         d: '24'
+      },
+      correctChoice: 'a'
+   },
+   {
+      question: 'What is the correct syntax for linking your javascript file to an html document?',
+      choices: {
+         a: '<script name="script.js"></script>',
+         b: '<script src="script.js">',
+         c: '<script href="script.js"></script>',
+         d: '<script src="script.js"></script>'
+      },
+      correctChoice: 'd'
+   }
 ];
 
 const finalMessage = ['You are a pro at this.', 'You did well', 'You can always try again', 'Wow! Just Wow!'];
@@ -111,19 +140,21 @@ function start() {
    // outputs first question
    $('.quizzer').html(
       `<p class="text-centre">${currentQuestion.question}</p>
-      <label>
-         <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
-      </label><br>
-      <label>
-         <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
-      </label><br>
-      <label>
-         <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
-      </label><br>
-      <label>
-         <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
-      </label><br>
-      <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">`
+      <div class="quiz-input">
+         <label>
+            <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
+         </label><br>
+         <label>
+            <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
+         </label><br>
+         <label>
+            <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
+         </label><br>
+         <label>
+            <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
+         </label><br>
+         <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">
+      </div>`
    );
 
    // if (($('input[name="'+questionName+'"]:checked').val()) === currentQuestion.correctChoice) {
@@ -146,19 +177,19 @@ function nextQuestion() {
       $('.quizzer').html(
          `<p class="text-centre">${currentQuestion.question}</p>
          <div class="quiz-input">
-         <label>
-            <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
-         </label><br>
-         <label>
-            <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
-         </label><br>
-         <label>
-            <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
-         </label><br>
-         <label>
-            <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
-         </label><br>
-         <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">
+            <label>
+               <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
+            </label><br>
+            <label>
+               <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
+            </label><br>
+            <label>
+               <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
+            </label><br>
+            <label>
+               <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
+            </label><br>
+            <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">
          </div>`
       );
 
@@ -170,19 +201,19 @@ function nextQuestion() {
       $('.quizzer').html(
          `<p class="text-center">${currentQuestion.question}</p>
          <div class="quiz-input">
-         <label>
-            <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
-         </label><br>
-         <label>
-            <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
-         </label><br>
-         <label>
-            <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
-         </label><br>
-         <label>
-            <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
-         </label><br>
-         <input class="q-btn next-action" type="button" value="Submit" onclick="myFunction()">
+            <label>
+               <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
+            </label><br>
+            <label>
+               <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
+            </label><br>
+            <label>
+               <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
+            </label><br>
+            <label>
+               <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
+            </label><br>
+            <input class="q-btn next-action" type="button" value="Submit" onclick="myFunction()">
          </div>`
       );
 
@@ -223,9 +254,9 @@ function getUserChoice() {
 
       if($('input[name="'+questionName+'"]:checked').val() == currentQuestion.correctChoice) {
          score += 10;
-         $(event.currentTarget).parent('label').css({'background-color': '#53ff75', 'border': '2px solid #53ff75'});
+         $(event.currentTarget).parent('label').addClass('correct-label');
       } else {
-         $(event.currentTarget).parent('label').css({'background-color': '##ff5549', 'border': '2px solid #ff5549'});
+         $(event.currentTarget).parent('label').addClass('incorrect-label').siblings().removeClass('correct-label');
       }
    }
    
@@ -233,30 +264,32 @@ function getUserChoice() {
 
 function printResult() {
 
+   $('#bg-text').show();
+
    if (score === 100) {
       $('.quizzer').html(
-         `<div class="text-center">
+         `<div class="result text-center">
             <h1>${finalMessage[0]}</h1>
             <p>You scored <span>${score}/100</span>
          </div>`
       );
    } else if (score >= 80 && score < 100) {
       $('.quizzer').html(
-         `<div class="text-center">
+         `<div class="result text-center">
             <h1>${finalMessage[1]}</h1>
             <p>You scored <span>${score}/100</span>
          </div>`
       );
    } else if (score === -10) {
       $('.quizzer').html(
-         `<div class="text-center">
+         `<div class="result text-center">
             <h1>${finalMessage[3]}</h1>
             <p>You scored <span>0/100</span>
          </div>`
       );
    } else {
       $('.quizzer').html(
-         `<div class="text-center">
+         `<div class="result text-center">
             <h1>${finalMessage[2]}</h1>
             <p>You scored <span>${score}/100</span>
          </div>`
