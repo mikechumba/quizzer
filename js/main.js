@@ -232,7 +232,7 @@ function printGuide() {
             Good Luck!
          </p>
          <div class="q-btn">
-            <button class="start-action" onclick="start()">Start</button>
+            <button class="start-action" onclick="window.reloadPage()">Back</button>
          </div>
       </div>`
    );
@@ -301,4 +301,8 @@ function myFunction() {
    //    `<h1>${rightChoice[2]}</h1>
    //    <p>You scored <span>${score}</span>`
    // );
+}
+
+function reloadPage() {
+	location.reload();
 }
