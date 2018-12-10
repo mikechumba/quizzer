@@ -108,22 +108,39 @@ header button {
    text-align: center;
 }
 
+.quiz-input {
+   width: 600px;
+   margin: 0 auto;
+   position: relative;
+}
+
 .quizzer label {
    border: 2px solid #ffb253;
    font-weight: 500;
    font-size: 15px;
    padding: 5px 10px;
-   width: 400px;
+   width: 500px;
    margin: 5px auto;
    cursor: pointer;
 }
 
-/* .quizzer input[type="radio"] {
-   display: none;
-} */
+.correct-label {
+   background-color: #53ff75;
+   border: 2px solid #53ff75;
+}
 
-.quizzer input[type="radio"]:checked + label {
-   background-color: #53ff75
+.incorrect-label {
+   border: 2px solid #ff5549;
+}
+
+.quiz-input {
+   width: 600px;
+   margin: 0 auto;
+   position: relative;
+}
+
+.quizzer input[type="radio"] {
+   display: none;
 }
 
 .quizzer input[type="radio"] {
@@ -135,17 +152,22 @@ header button {
    background-color: #ffb253;
 }
 
-.quizzer label:active input[type="radio"]:active {
-   background-color: #53ff75;
-}
-
 .next-action {
    color: #3D4852;
    border: 2px solid #3D4852;
    border-radius: none;
    padding: 5px 4px;
    background-color: #53ff75;
-   margin: 5px 0;
+   margin: 5px auto;
+}
+
+.result {
+   margin: 30% auto;
+}
+
+.result p {
+   padding: 30px 0;
+   font-size: 20px;
 }
 
 .guide {
@@ -164,3 +186,18 @@ header button {
 .guide .q-btn {
    width: 50%;
 }
+
+/* media queries go here */
+
+@media screen and (max-width: 480px) {
+   header {
+      margin: 40% auto;
+      position: relative;
+   }
+
+   .quiz, .quiz-input {
+      width: 300px;
+      margin: 0 auto;
+      position: relative;
+   }
+ }
