@@ -103,16 +103,16 @@ function start() {
    $('.quizzer').html(
       `<p class="text-centre">${currentQuestion.question}</p>
       <label>
-         <input type="radio" name="${questionName}" value="a">${currentQuestion.choices.a}
+         <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
       </label><br>
       <label>
-         <input type="radio" name="${questionName}" value="b">${currentQuestion.choices.b}
+         <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
       </label><br>
       <label>
-         <input type="radio" name="${questionName}" value="c">${currentQuestion.choices.c}
+         <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
       </label><br>
       <label>
-         <input type="radio" name="${questionName}" value="d">${currentQuestion.choices.d}
+         <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
       </label><br>
       <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">`
    );
@@ -122,8 +122,6 @@ function start() {
    // }
 
 }
-
-currentAnswer.push($('input[name="'+questionName+'"]:checked').val());
 
 
 function nextQuestion() {
@@ -142,16 +140,16 @@ function nextQuestion() {
          `<p class="text-centre">${currentQuestion.question}</p>
          <div class="quiz-input">
          <label>
-            <input type="radio" name="${questionName}" value="a">${currentQuestion.choices.a}
+            <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
          </label><br>
          <label>
-            <input type="radio" name="${questionName}" value="b">${currentQuestion.choices.b}
+            <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
          </label><br>
          <label>
-            <input type="radio" name="${questionName}" value="c">${currentQuestion.choices.c}
+            <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
          </label><br>
          <label>
-            <input type="radio" name="${questionName}" value="d">${currentQuestion.choices.d}
+            <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
          </label><br>
          <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">
          </div>`
@@ -166,16 +164,16 @@ function nextQuestion() {
          `<p class="text-centre">${currentQuestion.question}</p>
          <div class="quiz-input">
          <label>
-            <input type="radio" name="${questionName}" value="a">${currentQuestion.choices.a}
+            <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
          </label><br>
          <label>
-            <input type="radio" name="${questionName}" value="b">${currentQuestion.choices.b}
+            <input type="radio" name="${questionName}" value="b" onclick="getUserChoice()">${currentQuestion.choices.b}
          </label><br>
          <label>
-            <input type="radio" name="${questionName}" value="c">${currentQuestion.choices.c}
+            <input type="radio" name="${questionName}" value="c" onclick="getUserChoice()">${currentQuestion.choices.c}
          </label><br>
          <label>
-            <input type="radio" name="${questionName}" value="d">${currentQuestion.choices.d}
+            <input type="radio" name="${questionName}" value="d" onclick="getUserChoice()">${currentQuestion.choices.d}
          </label><br>
          <input class="q-btn next-action" type="button" value="Submit" onclick="myFunction()">
          </div>`
@@ -191,7 +189,8 @@ function nextQuestion() {
 
 function getUserChoice() {
 
-   return score;
+   currentQuestion = questions[index];
+   
 
 };
 
