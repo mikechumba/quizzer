@@ -91,12 +91,12 @@ const questions = [
       correctChoice: 'a'
    },
    {
-      question: 'What is the correct syntax for linking your javascript file to an html document?',
+      question: 'What is the correct attribute for linking your javascript file to an html document?',
       choices: {
-         a: '<script name="script.js"></script>',
-         b: '<script src="script.js">',
-         c: '<script href="script.js"></script>',
-         d: '<script src="script.js"></script>'
+         a: 'name',
+         b: 'url',
+         c: 'href',
+         d: 'src'
       },
       correctChoice: 'd'
    }

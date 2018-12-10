@@ -8,6 +8,28 @@ Quizzer is a web app for javascript beginners to test their skills using select 
 
 [Link to Live Site](https://mikechumba.github.io/quizzer)
 
+![image](images/landing_pc.png)
+
+*The web app's landing page. The user can click that 'Find Out' button to start the quiz*
+
+![image](images/quiz_pc.png)
+
+*Here is a page with the a question from the quiz loaded.*
+
+![image](images/Output_pc.png)
+
+*A page displays the results of the quiz.*
+
+##### Responsiveness
+
+![image](images/OnPaste.20181211-003438.png)
+
+![image](images/OnPaste.20181211-003509.png)
+
+![image](images/OnPaste.20181211-003416.png)
+
+*This is how it the web app will look like on mobile.*
+
 #### Project Approach
 
 The aim of the project was:
