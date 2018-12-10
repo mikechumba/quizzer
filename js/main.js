@@ -60,9 +60,20 @@ const questions = [
       },
       correctChoice: 'c'
    }
+   {
+      question: 'Which one of the following is not a function declaration type',
+      choices: {
+         a: 'Function declaration',
+         b: 'Arrow function',
+         c: 'Function literal',
+         d: 'Function expression'
+      },
+      correctChoice: 'c'
+   }
+];
 ];
 
-const finalMessage = ['You are a pro at this.', 'You did well', 'You can always try again'];
+const finalMessage = ['You are a pro at this.', 'You did well', 'You can always try again', 'Wow! Just Wow!'];
 
 const inputNames = [];
 
@@ -79,7 +90,7 @@ let currentQuestion;
 const currentAnswer = [];
 const rightChoice = [];
 
-let score;
+let score = -10;
 
 // to store name for current question
 let questionName;
@@ -96,8 +107,6 @@ function start() {
    currentQuestion = questions[index];
 
    questionName = inputNames[index];
-
-   score = 0;
    
    // outputs first question
    $('.quizzer').html(
@@ -131,8 +140,6 @@ function nextQuestion() {
    currentQuestion = questions[index];
 
    questionName = inputNames[index];
-   
-   score;
 
    // outputs first question
    if (index < (questions.length - 1)) {
@@ -189,9 +196,16 @@ function nextQuestion() {
 
 function getUserChoice() {
 
-   currentQuestion = questions[index];
-   
+   // currentQuestion = questions[index];
 
+   if (index >= 0) {
+      currentQuestion = questions[index];
+
+      if($('input[name="'+questionName+'"]:checked').val() == currentQuestion.correctChoice) {
+         score += 10;
+      }
+   }
+   
 };
 
 function printResult() {
@@ -205,6 +219,11 @@ function printResult() {
       $('.quizzer').html(
          `<h1>${finalMessage[1]}</h1>
          <p>You scored <span>${score}</span>`
+      );
+   } else if (score === -10) {
+      $('.quizzer').html(
+         `<h1>${finalMessage[3]}</h1>
+         <p>You scored <span>0</span>`
       );
    } else {
       $('.quizzer').html(
