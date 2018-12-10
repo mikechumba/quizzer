@@ -124,8 +124,6 @@ let score = -10;
 // to store name for current question
 let questionName;
 
-let answer;
-
 function start() {
 
    $('header').slideUp(100);
@@ -156,10 +154,6 @@ function start() {
          <input class="q-btn next-action" type="button" value="Next Question" onclick="nextQuestion()">
       </div>`
    );
-
-   // if (($('input[name="'+questionName+'"]:checked').val()) === currentQuestion.correctChoice) {
-   //    score = score + 10;
-   // }
 
 }
 
@@ -238,7 +232,7 @@ function printGuide() {
             Good Luck!
          </p>
          <div class="q-btn">
-            <button class="start-action" onclick="start()">Start Quiz</button>
+            <button class="start-action" onclick="start()">Start</button>
          </div>
       </div>`
    );
