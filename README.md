@@ -12,12 +12,11 @@ Quizzer is a web app for javascript beginners to test their skills using select 
 
 The aim of the project was:
 
-- Take 3 values from the user and test them against set conditions then return the result.
-- The values taken would have to be numerical and positive.
-- The results should be displayed to the user.
-- There would have option to reset the input fields to allow the user to enter new data, if they want to.
+- Have a web page with Javascript questions with multiple choices.
+- Option to select only one choice out of the ones provided.
+- On finishing the quiz, submit it and have it show the total score in that particular quiz.
 
-The web app manages to achieve most of this. Below is a flowchart that summarizes how the app works:
+I created a flowchart that tracks the process, simply, of the web app.
 
 ![image](images/flowchart.png)
 
@@ -32,7 +31,7 @@ If you want to use the project as your own, feel free to do so following the ste
 - You can clone directly from my page using following these steps using your terminal: 
    
    - `cd <your-chosen-directory>`
-   - `git clone https://github.com/mikechumba/triangles`
+   - `git clone https://github.com/mikechumba/quizzer`
    - There you go. You can now edit the project on your own. Good Luck!
 
 
@@ -42,11 +41,14 @@ If you want to use the project as your own, feel free to do so following the ste
 
 - HTML5
 - CSS3
+ - Bootstrap
 - Javascript
+ -jQuery
+-
 
 ###### Other
 
-- Fonts (Roboto, Open Sans, Lato) from [Google Fonts](fonts.google.com).
+- Fonts (Montserrat) from [Google Fonts](fonts.google.com).
 
 ### Debugging
 
