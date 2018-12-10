@@ -118,12 +118,12 @@ header button {
    cursor: pointer;
 }
 
-.quizzer input[type="radio"] {
+/* .quizzer input[type="radio"] {
    display: none;
-}
+} */
 
 .quizzer input[type="radio"]:checked + label {
-   background-color: #53ff75;
+   background-color: #53ff75
 }
 
 .quizzer input[type="radio"] {
