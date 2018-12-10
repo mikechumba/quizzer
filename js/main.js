@@ -102,7 +102,7 @@ const questions = [
    }
 ];
 
-const finalMessage = ['You are a pro at this.', 'You did well', 'You can always try again', 'Wow! Just Wow!'];
+const finalMessage = ['You are a pro at this.', 'You did well.', 'You can always try again', 'Wow! Just Wow!'];
 
 const inputNames = [];
 
