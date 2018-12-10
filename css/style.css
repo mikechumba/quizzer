@@ -148,4 +148,19 @@ header button {
    margin: 5px 0;
 }
 
+.guide {
+   width: 100%;
+   margin: 0 auto;
+}
 
+.guide h1 {
+   text-align: center;
+}
+
+.guide p {
+   line-height: 1.5;
+}
+
+.guide .q-btn {
+   width: 50%;
+}

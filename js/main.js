@@ -167,7 +167,7 @@ function nextQuestion() {
 
    } else {
       $('.quizzer').html(
-         `<p class="text-centre">${currentQuestion.question}</p>
+         `<p class="text-center">${currentQuestion.question}</p>
          <div class="quiz-input">
          <label>
             <input type="radio" name="${questionName}" value="a" onclick="getUserChoice()">${currentQuestion.choices.a}
@@ -199,13 +199,15 @@ function printGuide() {
    $('#bg-text').hide();
 
    $('.quiz').html(
-      `<h3>Guide</h3>
-      <p>The questions are meant to just tease your knowledge on Javascript. They are preselected and not auto-generated.<br>
-         Each question carries 10 points. That means that the highest score is 100 points. You can always revisit the questions if you fail.<br>
-         Good Luck!
-      </p>
-      <div class="q-btn">
-         <button class="start-action" onclick="start()">Find Out</button>
+      `<div class="guide text-center">
+         <h3>Guide</h3>
+         <p>The questions are meant to just tease your knowledge on Javascript. They are preselected and not auto-generated.<br>
+            Each question carries 10 points. That means that the highest score is 100 points. You can always revisit the questions if you fail.<br>
+            Good Luck!
+         </p>
+         <div class="q-btn">
+            <button class="start-action" onclick="start()">Start Quiz</button>
+         </div>
       </div>`
    );
 };
