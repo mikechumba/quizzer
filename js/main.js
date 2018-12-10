@@ -61,15 +61,16 @@ const questions = [
       correctChoice: 'c'
    },
    {
-      question: 'Which one of the following is not a function declaration type',
+      question: 'What method returns the smallest integer greater or equal to a number',
       choices: {
-         a: 'Function declaration',
-         b: 'Arrow function',
-         c: 'Function literal',
-         d: 'Function expression'
+         a: 'Math.ceil()',
+         b: 'Math.round()',
+         c: 'Math.min()',
+         d: 'Math.fround()'
       },
-      correctChoice: 'c'
-   }
+      correctChoice: 'a'
+   },
+   
 ];
 
 const finalMessage = ['You are a pro at this.', 'You did well', 'You can always try again', 'Wow! Just Wow!'];
@@ -222,6 +223,9 @@ function getUserChoice() {
 
       if($('input[name="'+questionName+'"]:checked').val() == currentQuestion.correctChoice) {
          score += 10;
+         $(event.currentTarget).parent('label').css({'background-color': '#53ff75', 'border': '2px solid #53ff75'});
+      } else {
+         $(event.currentTarget).parent('label').css({'background-color': '##ff5549', 'border': '2px solid #ff5549'});
       }
    }
    
@@ -231,23 +235,31 @@ function printResult() {
 
    if (score === 100) {
       $('.quizzer').html(
-         `<h1>${finalMessage[0]}</h1>
-         <p>You scored <span>${score}</span>`
+         `<div class="text-center">
+            <h1>${finalMessage[0]}</h1>
+            <p>You scored <span>${score}/100</span>
+         </div>`
       );
    } else if (score >= 80 && score < 100) {
       $('.quizzer').html(
-         `<h1>${finalMessage[1]}</h1>
-         <p>You scored <span>${score}</span>`
+         `<div class="text-center">
+            <h1>${finalMessage[1]}</h1>
+            <p>You scored <span>${score}/100</span>
+         </div>`
       );
    } else if (score === -10) {
       $('.quizzer').html(
-         `<h1>${finalMessage[3]}</h1>
-         <p>You scored <span>0</span>`
+         `<div class="text-center">
+            <h1>${finalMessage[3]}</h1>
+            <p>You scored <span>0/100</span>
+         </div>`
       );
    } else {
       $('.quizzer').html(
-         `<h1>${finalMessage[2]}</h1>
-         <p>You scored <span>${score}</span>`
+         `<div class="text-center">
+            <h1>${finalMessage[2]}</h1>
+            <p>You scored <span>${score}/100</span>
+         </div>`
       );
    }
 
