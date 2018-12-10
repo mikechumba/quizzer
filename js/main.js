@@ -59,7 +59,7 @@ const questions = [
          d: 'Function expression'
       },
       correctChoice: 'c'
-   }
+   },
    {
       question: 'Which one of the following is not a function declaration type',
       choices: {
@@ -70,7 +70,6 @@ const questions = [
       },
       correctChoice: 'c'
    }
-];
 ];
 
 const finalMessage = ['You are a pro at this.', 'You did well', 'You can always try again', 'Wow! Just Wow!'];
@@ -193,6 +192,24 @@ function nextQuestion() {
    }
 
 };
+
+function printGuide() {
+
+   $('header').slideUp(100);
+   $('#bg-text').hide();
+
+   $('.quiz').html(
+      `<h3>Guide</h3>
+      <p>The questions are meant to just tease your knowledge on Javascript. They are preselected and not auto-generated.<br>
+         Each question carries 10 points. That means that the highest score is 100 points. You can always revisit the questions if you fail.<br>
+         Good Luck!
+      </p>
+      <div class="q-btn">
+         <button class="start-action" onclick="start()">Find Out</button>
+      </div>`
+   );
+};
+
 
 function getUserChoice() {
 
