@@ -130,7 +130,7 @@ header button {
 }
 
 .incorrect-label {
-   border: 2px solid #ff5549;
+   border: 2px solid #e2372b;
 }
 
 .quiz-input {
@@ -139,9 +139,9 @@ header button {
    position: relative;
 }
 
-.quizzer input[type="radio"] {
+/* .quizzer input[type="radio"] {
    display: none;
-}
+} */
 
 .quizzer input[type="radio"] {
    padding: 0 5px;

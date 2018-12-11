@@ -187,9 +187,6 @@ function nextQuestion() {
          </div>`
       );
 
-      // if (($('input[name="'+questionName+'"]:checked').val()) === currentQuestion.correctChoice) {
-      //    score = score + 10;
-      // }
 
    } else {
       $('.quizzer').html(
@@ -210,10 +207,6 @@ function nextQuestion() {
             <input class="q-btn next-action" type="button" value="Submit" onclick="myFunction()">
          </div>`
       );
-
-      // if (($('input[name="'+questionName+'"]:checked').val()) === currentQuestion.correctChoice) {
-      //    score = score + 10;
-      // }
    
    }
 
@@ -241,8 +234,6 @@ function printGuide() {
 
 function getUserChoice() {
 
-   // currentQuestion = questions[index];
-
    if (index >= 0) {
       currentQuestion = questions[index];
 
@@ -250,7 +241,7 @@ function getUserChoice() {
          score += 10;
          $(event.currentTarget).parent('label').addClass('correct-label');
       } else {
-         $(event.currentTarget).parent('label').addClass('incorrect-label').siblings().removeClass('correct-label');
+         $(event.currentTarget).parent('label').addClass('incorrect-label').mouseleave().removeClass('incorrect-label');
       }
    }
    
@@ -297,10 +288,6 @@ function myFunction() {
    getUserChoice();
    printResult(); 
 
-   // $('.quizzer').html(
-   //    `<h1>${rightChoice[2]}</h1>
-   //    <p>You scored <span>${score}</span>`
-   // );
 }
 
 function reloadPage() {
